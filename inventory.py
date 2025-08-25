@@ -1,10 +1,16 @@
 
 class Product():
-    def __init__(self, name, price, id, quantity):
+    __id = 1
+    def __init__(self, name, price, quantity):
         self.name = name
         self.price = price
-        self.id = id
         self.quantity = quantity
+        self._id = Product.__id
+        Product.__id += 1
+        
+    @property
+    def id(self):
+        return self._id
 
     def __repr__(self):
         return (
@@ -16,6 +22,8 @@ class Product():
                 """
                 )
     
+    def to_dict(self):
+        return {"id": self.id, "name":self.name, "price":self.price, "quantity": self.quantity}
 
 
 class Inventory():
