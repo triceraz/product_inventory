@@ -5,7 +5,8 @@ from gui import InventoryGUI
 from data_manager import *
 
 def main():
-    inventory = load_from_file()
+    inventory = load_from_file("products.json")
+    save_to_file(inventory)
 
     gui = InventoryGUI(inventory)
     gui.display_products()

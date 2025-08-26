@@ -1,16 +1,19 @@
 
 class Product():
-    __id = 1
-    def __init__(self, name, price, quantity):
+    counter = 1
+    def __init__(self, name, price, quantity, id=None):
+        if id == None:
+            self.__id = Product.counter
+            Product.counter +=1
+        else:
+            self.__id = id
         self.name = name
         self.price = price
         self.quantity = quantity
-        self._id = Product.__id
-        Product.__id += 1
-        
+
     @property
     def id(self):
-        return self._id
+        return self.__id
 
     def __repr__(self):
         return (
@@ -28,9 +31,7 @@ class Product():
 
 class Inventory():
     def __init__(self, list_of_products=None):
-        if list_of_products is None:
-            self.list_of_products = []
-        self.list_of_products = list_of_products
+        self.list_of_products = list_of_products if list_of_products else []
     
     def __repr__(self):
         return "\n".join(
