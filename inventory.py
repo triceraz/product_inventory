@@ -3,8 +3,8 @@ class Product():
     counter = 1
     def __init__(self, name, price, quantity, id=None):
         if id == None:
+            Product.counter += 1
             self.__id = Product.counter
-            Product.counter +=1
         else:
             self.__id = id
         self.name = name

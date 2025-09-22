@@ -19,7 +19,7 @@ class InventoryGUI():
         for product in self.inventory.list_of_products:
             label = tk.Label(
                 self.products_frame,
-                text=f"{product.name} - ${product.price} - Qty: {product.quantity}",
+                text=f"{product.name} - ${product.price} - Qty: {product.quantity} {product.id}",
                 font=("Arial", 20)
             )
             label.pack(anchor="w", padx=20)
